@@ -1,0 +1,642 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: Arial, sans-serif;
+
+  color: white;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #514b91,
+      #211d4b 40%,
+      #080817 90%
+    );
+
+  overflow-x: hidden;
+}
+
+
+/* BACKGROUND */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .3;
+
+  background-image:
+    radial-gradient(
+      white 1px,
+      transparent 1px
+    );
+
+  background-size: 60px 60px;
+}
+
+
+/* CONTAINER */
+
+.container {
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: auto;
+
+  padding: 20px;
+}
+
+
+/* PAGE */
+
+.page {
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/* LOGO */
+
+.ghost-logo {
+  font-size: 90px;
+
+  animation:
+    floating 2s infinite ease-in-out;
+
+  filter:
+    drop-shadow(
+      0 0 20px #b69cff
+    );
+}
+
+
+h1 {
+  font-size:
+    clamp(
+      40px,
+      10vw,
+      70px
+    );
+
+  text-align: center;
+
+  margin-top: 10px;
+}
+
+h1 span {
+  color: #ff75d4;
+}
+
+
+.subtitle {
+  color: #d4d0ee;
+
+  margin:
+    10px 0 25px;
+
+  text-align: center;
+}
+
+
+/* CARD */
+
+.card {
+  width: 100%;
+
+  max-width: 480px;
+
+  padding: 30px;
+
+  background:
+    rgba(
+      24,
+      21,
+      57,
+      .95
+    );
+
+  border:
+    1px solid #5a548d;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.5);
+}
+
+.card h2 {
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+
+
+/* INPUT */
+
+input {
+  width: 100%;
+
+  padding: 15px;
+
+  margin-bottom: 12px;
+
+  border-radius: 12px;
+
+  border:
+    1px solid #5c5687;
+
+  background:
+    #0e0c22;
+
+  color: white;
+
+  font-size: 16px;
+
+  outline: none;
+}
+
+input:focus {
+  border-color:
+    #a18cff;
+}
+
+
+/* BUTTON */
+
+button {
+  width: 100%;
+
+  padding: 15px;
+
+  margin-top: 10px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7965ff,
+      #c05aff
+    );
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform .15s,
+    opacity .15s;
+}
+
+button:active {
+  transform:
+    scale(.96);
+}
+
+button:hover {
+  opacity: .9;
+}
+
+
+.leaderboard-btn {
+  background:
+    #302b58;
+}
+
+
+/* ERROR */
+
+#error {
+  min-height: 18px;
+
+  text-align: center;
+
+  color:
+    #ff8c9e;
+
+  font-size: 13px;
+}
+
+
+/* GAME HUD */
+
+.topbar {
+  width: 100%;
+
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+.topbar div {
+  flex: 1;
+
+  text-align: center;
+
+  padding: 13px 5px;
+
+  background:
+    rgba(
+      25,
+      22,
+      59,
+      .95
+    );
+
+  border:
+    1px solid #504a7c;
+
+  border-radius: 12px;
+
+  font-size: 14px;
+}
+
+
+/* GAME AREA */
+
+#gameArea {
+  position: relative;
+
+  width: 100%;
+
+  height:
+    min(
+      68vh,
+      600px
+    );
+
+  min-height: 400px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  border:
+    2px solid #514a81;
+
+  background:
+    linear-gradient(
+      #171646 0%,
+      #22205a 55%,
+      #10142d 55%,
+      #10142d 100%
+    );
+
+  box-shadow:
+    0 15px 50px
+    rgba(0,0,0,.5);
+}
+
+
+/* MOON */
+
+.moon {
+  position: absolute;
+
+  top: 25px;
+
+  right: 30px;
+
+  font-size: 70px;
+
+  filter:
+    drop-shadow(
+      0 0 20px
+      #fff0a5
+    );
+}
+
+
+/* TREE */
+
+.tree {
+  position: absolute;
+
+  bottom: 10px;
+
+  font-size: 90px;
+
+  z-index: 2;
+}
+
+.tree.left {
+  left: 5px;
+}
+
+.tree.right {
+  right: 5px;
+}
+
+
+/* GHOST */
+
+#ghost {
+  position: absolute;
+
+  width: auto;
+
+  padding: 0;
+
+  margin: 0;
+
+  background: transparent;
+
+  font-size:
+    clamp(
+      60px,
+      13vw,
+      95px
+    );
+
+  z-index: 5;
+
+  filter:
+    drop-shadow(
+      0 0 15px
+      #b7a4ff
+    );
+
+  animation:
+    ghostFloat .6s
+    infinite alternate;
+}
+
+
+/* POINT */
+
+#pointEffect {
+  position: absolute;
+
+  display: none;
+
+  z-index: 10;
+
+  color: #ffe45c;
+
+  font-size: 30px;
+
+  font-weight: bold;
+
+  pointer-events: none;
+}
+
+.pointAnimation {
+  display: block !important;
+
+  animation:
+    pointUp .5s
+    forwards;
+}
+
+
+/* INSTRUCTION */
+
+.instruction {
+  text-align: center;
+
+  color: #c2bddf;
+
+  margin:
+    12px 0;
+}
+
+
+/* EXIT */
+
+.exit {
+  width: auto;
+
+  padding:
+    10px 25px;
+
+  background:
+    #302c50;
+}
+
+
+/* TABLE */
+
+.leaderboard {
+  max-width: 650px;
+}
+
+table {
+  width: 100%;
+
+  margin:
+    20px 0;
+
+  border-collapse:
+    collapse;
+}
+
+th,
+td {
+  padding: 12px;
+
+  border-bottom:
+    1px solid #3c375d;
+
+  text-align: left;
+}
+
+th {
+  color:
+    #aaa5ca;
+}
+
+tbody tr:first-child {
+  color:
+    #ffe05a;
+
+  font-weight: bold;
+}
+
+
+/* POPUP */
+
+.popup {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 20px;
+
+  background:
+    rgba(0,0,0,.8);
+}
+
+.result-box {
+  width: 100%;
+
+  max-width: 400px;
+
+  padding: 30px;
+
+  text-align: center;
+
+  background:
+    #1c193f;
+
+  border:
+    1px solid #665c9c;
+
+  border-radius: 25px;
+}
+
+.big-ghost {
+  font-size: 75px;
+
+  animation:
+    floating 1.5s infinite;
+}
+
+.result-box strong {
+  display: block;
+
+  font-size: 60px;
+
+  color:
+    #ffe05a;
+
+  margin: 10px;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes floating {
+
+  50% {
+    transform:
+      translateY(-12px);
+  }
+
+}
+
+@keyframes ghostFloat {
+
+  from {
+    transform:
+      translateY(0);
+  }
+
+  to {
+    transform:
+      translateY(-10px);
+  }
+
+}
+
+@keyframes pointUp {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateY(-50px)
+      scale(1.3);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+  .container {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  #gameArea {
+    height: 68vh;
+
+    min-height: 380px;
+  }
+
+  .tree {
+    font-size: 65px;
+  }
+
+  .topbar {
+    gap: 5px;
+  }
+
+  .topbar div {
+    font-size: 11px;
+
+    padding:
+      10px 3px;
+  }
+
+}
+
+
+/* LANDSCAPE HP */
+
+@media(
+  orientation: landscape
+)
+and
+(max-height: 600px) {
+
+  #gameArea {
+    height: 75vh;
+
+    min-height: 280px;
+  }
+
+}
