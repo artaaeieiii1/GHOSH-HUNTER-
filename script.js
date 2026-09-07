@@ -9,7 +9,7 @@ di bagian API_URL.
 */
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbxjIyaNPnqbDh9U0Dj8G5XEFjTJuLJccyLlxTSt-CIWKiobmfrW1-Lj2VN90vsRRRTs/exec";
+  "https://script.google.com/macros/s/AKfycbz-kFPQPJkc1JbA_FcOCr6AEXL3MfPS5q6dOnKzmFnZjbAQOU5q74TkTdgXyc9Aoaub/exec";
 
 
 const GAME_TIME = 30;
