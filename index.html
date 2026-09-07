@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GHOSH HUNTER</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- MENU -->
+    <section id="menu" class="page">
+
+      <div class="ghost-logo">👻</div>
+
+      <h1>GHOSH <span>HUNTER</span></h1>
+
+      <p class="subtitle">
+        Tangkap hantu sebanyak mungkin!
+      </p>
+
+      <div class="card">
+
+        <h2>🎮 MULAI BERMAIN</h2>
+
+        <input
+          id="username"
+          type="text"
+          maxlength="20"
+          placeholder="Username"
+        >
+
+        <input
+          id="whatsapp"
+          type="tel"
+          inputmode="numeric"
+          placeholder="Nomor WhatsApp"
+        >
+
+        <p id="error"></p>
+
+        <button onclick="startGame()">
+          👻 MULAI BERBURU
+        </button>
+
+        <button
+          class="leaderboard-btn"
+          onclick="showLeaderboard()"
+        >
+          🏆 LEADERBOARD
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- GAME -->
+    <section id="game" class="page hidden">
+
+      <div class="topbar">
+
+        <div>
+          👤 <span id="playerName">Player</span>
+        </div>
+
+        <div>
+          ⭐ <span id="score">0</span>
+        </div>
+
+        <div>
+          ⏱️ <span id="timer">30</span>
+        </div>
+
+      </div>
+
+
+      <div id="gameArea">
+
+        <div class="moon">🌙</div>
+
+        <div class="tree left">🌲</div>
+
+        <div class="tree right">🌲</div>
+
+        <button id="ghost">
+          👻
+        </button>
+
+        <div id="pointEffect">
+          +10
+        </div>
+
+      </div>
+
+
+      <p class="instruction">
+        👆 Tap hantu untuk mendapatkan poin!
+      </p>
+
+      <button
+        class="exit"
+        onclick="backMenu()"
+      >
+        KELUAR
+      </button>
+
+    </section>
+
+
+    <!-- LEADERBOARD -->
+    <section id="leaderboard" class="page hidden">
+
+      <div class="card leaderboard">
+
+        <h2>🏆 LEADERBOARD</h2>
+
+        <p>
+          Hunter terbaik
+        </p>
+
+        <div id="loading">
+          Memuat data...
+        </div>
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>#</th>
+              <th>Hunter</th>
+              <th>Score</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="leaderboardBody">
+          </tbody>
+
+        </table>
+
+        <button onclick="backMenu()">
+          🏠 KEMBALI
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- HASIL GAME -->
+    <div
+      id="result"
+      class="popup hidden"
+    >
+
+      <div class="result-box">
+
+        <div class="big-ghost">
+          👻
+        </div>
+
+        <h2>WAKTU HABIS!</h2>
+
+        <p>
+          Skor kamu:
+        </p>
+
+        <strong id="finalScore">
+          0
+        </strong>
+
+        <button onclick="showLeaderboard()">
+          🏆 LIHAT LEADERBOARD
+        </button>
+
+        <button
+          class="leaderboard-btn"
+          onclick="backMenu()"
+        >
+          🏠 MENU UTAMA
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
